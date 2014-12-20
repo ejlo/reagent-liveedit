@@ -30,7 +30,7 @@ lein install
 ## Usage
 
 ```bash
-lein new reagent myapp
+lein new reagent-liveedit myapp
 cd myapp
 lein dev
 ```
