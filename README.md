@@ -4,8 +4,8 @@ A leiningen template based on [reagent-template](https://github.com/reagent-proj
 
 ## Added Features
 
-* uses [garden](https://github.com/noprompt/garden) to create stylesheets with clojure 
-* automatically run tests and display the results directly in the web app
+* Uses [garden](https://github.com/noprompt/garden) to create stylesheets with clojure
+* Runs tests automatically and displays the results directly in the web app
 
 ## Dependencies
 
