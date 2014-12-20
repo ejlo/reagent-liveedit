@@ -26,10 +26,10 @@
 ["src/styles/{{sanitized}}/styles/site.clj" (render "site.clj" data)]
 ["src/clj/{{sanitized}}/server/handler.clj" (render "handler.clj" data)]
 ["src/cljs/{{sanitized}}/core.cljs" (render "core.cljs" data)]
+["resources/templates/index.html" (render "index.html" data)]
 ["system.properties" (render "system.properties")]
 ["README.md" (render "README.md")]
 [".gitignore" (render ".gitignore")]
 ["LICENSE" (render "LICENSE")]
 ["resources/templates/js/function_prototype_polyfill.js" (render "function_prototype_polyfill.js")]
-["resources/templates/index.html" (render "index.html")]
 )))
