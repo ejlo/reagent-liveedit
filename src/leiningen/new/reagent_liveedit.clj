@@ -27,7 +27,6 @@
 ["src/clj/{{sanitized}}/server/handler.clj" (render "handler.clj" data)]
 ["src/cljs/{{sanitized}}/core.cljs" (render "core.cljs" data)]
 ["resources/templates/index.html" (render "index.html" data)]
-["system.properties" (render "system.properties")]
 ["README.md" (render "README.md")]
 [".gitignore" (render ".gitignore")]
 ["LICENSE" (render "LICENSE")]
