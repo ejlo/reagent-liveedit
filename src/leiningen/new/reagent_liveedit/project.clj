@@ -49,6 +49,11 @@
 
   :uberjar-name "{{ns-name}}.jar"
 
+  :clean-targets  ^{:protect false} ["target/"
+                                     "resources/public/js/out/"
+                                     "resources/public/js/app.js"
+                                     "resources/public/css/"]
+
   :minify-assets
   {:assets
    {"resources/public/css/site.min.css" "resources/public/css/site.css"
