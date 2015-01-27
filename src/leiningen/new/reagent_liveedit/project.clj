@@ -60,10 +60,10 @@
     "resources/public/css/dev.min.css" "resources/public/css/dev.css"}}
 
   :aliases {"fig" ["exec" "-pe" "(use '{{ns-name}}.server.services) (start-figwheel)"]
-            "brepl" ["exec" "-pe" "(use '{{ns-name}}.server.services) (browser-repl)"]
             "server" ["ring" "server"]
             "css" ["garden" "auto"]
-            "tests" ["cljsbuild" "auto" "test"]
+            "autotest" ["cljsbuild" "auto" "test"]
+            "test" ["cljsbuild" "test"]
             "web" ["with-profile" "production" "trampoline" "ring" "server"]
             "dev" ["pdo" "css," "fig," "server"]}
 
