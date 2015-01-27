@@ -106,7 +106,9 @@
 
                    :figwheel {:http-server-root "public"
                               :server-port 3449
-                              :css-dirs ["resources/public/css"]}
+                              :css-dirs ["resources/public/css"]
+                              :server-logfile "logs/figwheel.log"
+                              :repl false}
 
                    :env {:dev? true}
 
