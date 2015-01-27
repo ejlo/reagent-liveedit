@@ -1,11 +1,12 @@
 (ns {{ns-name}}.core
-    (:require [reagent.core :as reagent]
-              [secretary.core :as secretary :include-macros true]
-              [goog.events :as events]
-              [goog.history.EventType :as EventType]
-              [{{ns-name}}.state :as state]
-              [{{ns-name}}.test :as test])
-    (:import goog.History))
+  (:require [reagent.core :as reagent]
+            [cljsjs.react]
+            [secretary.core :as secretary :include-macros true]
+            [goog.events :as events]
+            [goog.history.EventType :as EventType]
+            [{{ns-name}}.state :as state]
+            [{{ns-name}}.test :as test])
+  (:import goog.History))
 
 ;; -------------------------
 ;; Views

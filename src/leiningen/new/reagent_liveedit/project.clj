@@ -13,6 +13,7 @@
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [reagent "0.5.0-alpha"]
                  [reagent-utils "0.1.2"]
+                 [cljsjs/react "0.12.2-5"]
                  [garden "1.2.5"]
                  [secretary "1.2.1"]
                  [org.clojure/clojurescript "0.0-2727" :scope "provided"]
