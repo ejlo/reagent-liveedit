@@ -79,7 +79,9 @@
                                 :pretty-print? true}}]}
 
   :cljsbuild {:builds {:app {:source-paths ["src/cljs"]
-                             :compiler {:output-to     "resources/public/js/app.js"
+                             :compiler {:main          "{{ns-name}}.dev"
+                                        :asset-path    "js/out"
+                                        :output-to     "resources/public/js/app.js"
                                         :output-dir    "resources/public/js/out"
                                         :source-map    "resources/public/js/out.js.map"
                                         :externs       ["react/externs/react.js"]
