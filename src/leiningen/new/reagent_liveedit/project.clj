@@ -41,7 +41,7 @@
             [lein-pdo "0.1.1"]
             [com.cemerick/clojurescript.test "0.3.3"]
             [lein-figwheel "0.2.2-SNAPSHOT" :exclusions [org.clojure/clojure org.clojure/core.async]]
-            [cider/cider-nrepl "0.9.0"]]
+            [cider/cider-nrepl "0.9.0-SNAPSHOT"]]
 
   :ring {:handler {{ns-name}}.server.handler/app}
 
@@ -59,13 +59,13 @@
    {"resources/public/css/site.min.css" "resources/public/css/site.css"
     "resources/public/css/dev.min.css" "resources/public/css/dev.css"}}
 
-  :aliases {"fig" ["exec" "-pe" "(use '{{ns-name}}.server.services) (start-figwheel)"]
-            "server" ["ring" "server"]
-            "css" ["garden" "auto"]
+  :aliases {"fig"      ["exec" "-pe" "(use '{{ns-name}}.server.services) (start-figwheel)"]
+            "server"   ["ring" "server"]
+            "css"      ["garden" "auto"]
             "autotest" ["cljsbuild" "auto" "test"]
-            "test" ["cljsbuild" "test"]
-            "web" ["with-profile" "production" "trampoline" "ring" "server"]
-            "dev" ["pdo" "css," "fig," "server"]}
+            "test"     ["cljsbuild" "test"]
+            "web"      ["with-profile" "production" "trampoline" "ring" "server"]
+            "dev"      ["pdo" "css," "fig," "server"]}
 
   :garden {:builds [{:id "site"
                      :source-paths ["src/styles"]
