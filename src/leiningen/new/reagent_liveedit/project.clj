@@ -66,7 +66,8 @@
             "autotest" ["cljsbuild" "auto" "test"]
             "test"     ["cljsbuild" "test"]
             "web"      ["with-profile" "production" "trampoline" "ring" "server"]
-            "dev"      ["pdo" "css," "fig," "server"]}
+            "live"     ["pdo" "css," "fig," "server"]
+            "dev"      ["do" "cljsbuild" "once" "app," "live"]}
 
   :garden {:builds [{:id "site"
                      :source-paths ["src/styles"]
