@@ -10,7 +10,6 @@
               :sanitized (name-to-path name)}]
     (->files
      data
-     ["src/env/dev/cljs/{{sanitized}}/dev.cljs" (render "dev.cljs" data)]
      ["project.clj" (render "project.clj" data)]
      ["README.md" (render "README.md")]
      ["LICENSE" (render "LICENSE")]
@@ -20,6 +19,7 @@
      ["src/cljs/{{sanitized}}/test.cljs" (render "test.cljs" data)]
      ["src/clj/{{sanitized}}/server/handler.clj" (render "handler.clj" data)]
      ["src/clj/{{sanitized}}/server/services.clj" (render "services.clj" data)]
+     ["src/env/dev/cljs/{{sanitized}}/dev.cljs" (render "dev.cljs" data)]
      ["src/env/dev/cljs/{{sanitized}}/testrunner.cljs" (render "testrunner.cljs" data)]
      ["src/env/prod/cljs/{{sanitized}}/prod.cljs" (render "prod.cljs" data)]
      ["src/styles/{{sanitized}}/styles/dev.clj" (render "dev.clj" data)]
@@ -29,4 +29,4 @@
      ["resources/public/index.html" (render "index.html" data)]
 
      ["resources/templates/js/function_prototype_polyfill.js" (render "function_prototype_polyfill.js")]
-)))
+     )))
