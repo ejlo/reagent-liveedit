@@ -48,8 +48,6 @@
 
   :min-lein-version "2.5.0"
 
-  :uberjar-name "{{ns-name}}.jar"
-
   :clean-targets  ^{:protect false} ["target/"
                                      "resources/public/js/out/"
                                      "resources/public/js/app.js"
@@ -117,16 +115,6 @@
                    :env {:dev? true}
 
                    :cljsbuild {:builds {:app {:source-paths ["src/env/dev/cljs" "test"]}}}}
-             :uberjar {:hooks [leiningen.cljsbuild minify-assets.plugin/hooks]
-                       :env {:production true}
-                       :aot :all
-                       :omit-source true
-                       :cljsbuild {:jar true
-                                   :builds {:app
-                                             {:source-paths ["src/env/prod/cljs"]
-                                              :compiler
-                                              {:optimizations :advanced
-                                               :pretty-print false}}}}}
 
              :production {:ring {:open-browser? false
                                  :stacktraces?  false
