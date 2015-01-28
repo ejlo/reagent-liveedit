@@ -7,8 +7,7 @@
   :source-paths ["src/clj" "src/cljs"]
   :template-additions ["README.md"
                        "LICENSE"
-                       ".gitignore"
-                       "system.properties"]
+                       ".gitignore"]
 
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [reagent "0.5.0-alpha"]
@@ -95,13 +94,7 @@
   :cljsbuild {:builds {:app {:source-paths ["src/cljs"]
                              :compiler {:main          "{{ns-name}}.dev"
                                         :asset-path    "js/out"
-                                        :output-to     "resources/public/js/app.js"
-                                        :output-dir    "resources/public/js/out"
-                                        :source-map    "resources/public/js/out.js.map"
-                                        :externs       ["react/externs/react.js"]
-                                        :optimizations :none
-                                        :pretty-print  true}}
-
+                                        :output-to     "resources/public/js/app.js"}}
                        :test {:source-paths ["src/cljs" "test"]
                               :notify-command ["phantomjs"
                                                :cljs.test/runner
@@ -128,8 +121,23 @@
 
                    :env {:dev? true}
 
-                   :cljsbuild {:builds {:app {:source-paths ["src/env/dev/cljs" "test"]}}}}
+                   :cljsbuild
+                   {:builds
+                    {:app {:source-paths ["src/env/dev/cljs" "test"]
+                           :compiler
+                           {:output-dir    "resources/public/js/out"
+                            :optimizations :none
+                            :source-map    "resources/public/js/out.js.map"
+                            :pretty-print  true}}}}}
 
              :production {:ring {:open-browser? false
                                  :stacktraces?  false
-                                 :auto-reload?  false}}})
+                                 :auto-reload?  false}
+                          :env {:production true}
+                          :cljsbuild
+                          {:builds
+                           {:app
+                            {:source-paths ["src/env/prod/cljs"]
+                             :compiler
+                             {:optimizations :advanced
+                              :pretty-print false}}}}}})
