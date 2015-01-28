@@ -50,21 +50,36 @@
 
   :clean-targets  ^{:protect false} ["target/"
                                      "resources/public/js/"
-                                     "resources/public/css/"]
+                                     "resources/public/css/"
+                                     "resources/dev/"]
 
   :minify-assets
-  {:assets
-   {"resources/public/css/site.min.css" "resources/public/css/site.css"
-    "resources/public/css/dev.min.css" "resources/public/css/dev.css"}}
+  {:dev
+   {:assets {"resources/public/css/site.min.css" ["resources/dev/css/site.css"
+                                                  "resources/dev/css/dev.css"]}
+    :options {:optimizations :none}}
 
-  :aliases {"fig"      ["exec" "-pe" "(use '{{ns-name}}.server.services) (start-figwheel)"]
+   :production
+   {:assets {"resources/public/css/site.min.css" "resources/dev/css/site.css"}
+    :options {:optimizations :advanced}}}
+
+  :aliases {"fig"      ["exec" "-pe" "(use 'tic-tac-toe.server.services) (start-figwheel)"]
             "server"   ["ring" "server"]
             "css"      ["garden" "auto"]
+            "minify"   ["minify-assets" "watch" "dev"]
             "autotest" ["cljsbuild" "auto" "test"]
             "test"     ["cljsbuild" "test"]
             "web"      ["with-profile" "production" "trampoline" "ring" "server"]
-            "live"     ["pdo" "css," "fig," "server"]
-            "dev"      ["do" "cljsbuild" "once" "app," "live"]}
+            "prod"     ["with-profile" "production" "do"
+                        "clean,"
+                        "garden" "once" "site,"
+                        "minify-assets" "production,"
+                        "cljsbuild" "once" "app"]
+            "live"     ["pdo" "css," "minify," "fig," "server"]
+            "once"     ["do" "cljsbuild" "once" "app,"
+                        "garden" "once" "dev,"
+                        "minify-assets" "dev"]
+            "dev"      ["do" "once," "live"]}
 
   :garden {:builds [{:id "site"
                      :source-paths ["src/styles"]
