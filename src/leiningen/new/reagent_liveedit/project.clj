@@ -83,12 +83,12 @@
   :garden {:builds [{:id "site"
                      :source-paths ["src/styles"]
                      :stylesheet {{ns-name}}.styles.site/site
-                     :compiler {:output-to "resources/public/css/site.css"
+                     :compiler {:output-to "resources/dev/css/site.css"
                                 :pretty-print? true}}
                     {:id "dev"
                      :source-paths ["src/styles"]
                      :stylesheet {{ns-name}}.styles.dev/dev
-                     :compiler {:output-to "resources/public/css/dev.css"
+                     :compiler {:output-to "resources/dev/css/dev.css"
                                 :pretty-print? true}}]}
 
   :cljsbuild {:builds {:app {:source-paths ["src/cljs"]
