@@ -88,14 +88,14 @@
                                 :pretty-print? true}}]}
 
   :cljsbuild {:builds {:app {:source-paths ["src/cljs"]
-                             :compiler {:output-to     "resources/public/js/app.js"}}
+                             :compiler {:output-to "resources/public/js/app.js"}}
                        :test {:source-paths ["src/cljs" "test"]
                               :notify-command ["phantomjs"
                                                :cljs.test/runner
                                                "target/test/test.js"]
-                              :compiler {:output-to     "target/test/test.js"
+                              :compiler {:output-to "target/test/test.js"
                                          :optimizations :whitespace
-                                         :pretty-print  true
+                                         :pretty-print true
                                          :preamble ["templates/js/function_prototype_polyfill.js"
                                                     "reagent/react.js"]}}}
               :test-commands {"unit-tests" ["phantomjs" :runner
