@@ -1,6 +1,8 @@
 (defproject reagent-liveedit/lein-template "0.1.1"
-  :description "Created with lein-create-template"
-  :url "http://example.com/FIXME"
-  :license {:name "Eclipse Public License"
-            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :description "A leiningen template based on reagent-template for live editing a clojurescript web app"
+  :url "https://github.com/ejlo/reagent-liveedit/"
+  :license {:name "MIT License"
+            :url "http://opensource.org/licenses/MIT"}
+  :scm {:name "git"
+        :url "https://github.com/ejlo/reagent-liveedit.git"}
   :eval-in-leiningen true)
