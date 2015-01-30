@@ -63,7 +63,7 @@
             "css"      ["garden" "auto"]
             "minify"   ["minify-assets" "watch" "dev"]
             "autotest" ["cljsbuild" "auto" "test"]
-            "test"     ["cljsbuild" "test"]
+            "test"     ["cljsbuild" "once" "test"]
             "web"      ["with-profile" "production" "trampoline" "ring" "server"]
             "prod"     ["with-profile" "production" "do"
                         "clean,"
