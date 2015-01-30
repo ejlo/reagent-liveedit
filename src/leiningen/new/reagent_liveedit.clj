@@ -22,6 +22,7 @@
      ["src/env/dev/cljs/{{sanitized}}/dev.cljs" (render "dev.cljs" data)]
      ["src/env/dev/cljs/{{sanitized}}/testrunner.cljs" (render "testrunner.cljs" data)]
      ["src/env/prod/cljs/{{sanitized}}/prod.cljs" (render "prod.cljs" data)]
+     ["src/env/test/cljs/{{sanitized}}/testenv.cljs" (render "testenv.cljs" data)]
      ["src/styles/{{sanitized}}/styles/dev.clj" (render "dev.clj" data)]
      ["src/styles/{{sanitized}}/styles/site.clj" (render "site.clj" data)]
      ["test/{{sanitized}}/core_test.cljs" (render "core_test.cljs" data)]

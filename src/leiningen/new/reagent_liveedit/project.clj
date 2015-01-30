@@ -89,17 +89,13 @@
 
   :cljsbuild {:builds {:app {:source-paths ["src/cljs"]
                              :compiler {:output-to "resources/public/js/app.js"}}
-                       :test {:source-paths ["src/cljs" "test"]
-                              :notify-command ["phantomjs"
-                                               :cljs.test/runner
-                                               "target/test/test.js"]
+                       :test {:source-paths ["src/cljs" "src/env/test/cljs" "test"]
+                              :notify-command ["phantomjs" "target/test/test.js"]
                               :compiler {:output-to "target/test/test.js"
                                          :optimizations :whitespace
                                          :pretty-print true
-                                         :preamble ["templates/js/phantomjs_polyfills.js"
-                                                    "reagent/react.js"]}}}
-              :test-commands {"unit-tests" ["phantomjs" :runner
-                                            "target/test/test.js"]}}
+                                         :preamble ["templates/js/phantomjs_polyfills.js"]}}}
+              :test-commands {"unit-tests" ["phantomjs" "target/test/test.js"]}}
 
   :profiles {:dev {:repl-options {:init-ns {{ns-name}}.server.handler
                                   :nrepl-middleware [cemerick.piggieback/wrap-cljs-repl]}
