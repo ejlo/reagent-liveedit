@@ -1,7 +1,9 @@
 (ns {{ns-name}}.state
     (:require [reagent.core :as reagent]))
 
-(defonce app-state (reagent/atom {:text "Hello, this is: "}))
+(defonce init-state {:text "Hello, this is: "})
+
+(defonce app-state (reagent/atom init-state))
 
 (defn get-state
   ([cursor]
@@ -17,3 +19,6 @@
 
 (defn reset-state! [s]
   (reset! app-state s))
+
+(defn clean-state! []
+  (reset-state! init-state))
