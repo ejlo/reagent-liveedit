@@ -96,7 +96,7 @@
                               :compiler {:output-to "target/test/test.js"
                                          :optimizations :whitespace
                                          :pretty-print true
-                                         :preamble ["templates/js/function_prototype_polyfill.js"
+                                         :preamble ["templates/js/phantomjs_polyfills.js"
                                                     "reagent/react.js"]}}}
               :test-commands {"unit-tests" ["phantomjs" :runner
                                             "target/test/test.js"]}}

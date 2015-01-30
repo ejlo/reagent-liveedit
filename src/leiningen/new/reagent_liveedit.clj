@@ -28,5 +28,5 @@
      ["test/{{sanitized}}/test_macros.clj" (render "test_macros.clj" data)]
      ["resources/public/index.html" (render "index.html" data)]
 
-     ["resources/templates/js/function_prototype_polyfill.js" (render "function_prototype_polyfill.js")]
+     ["resources/templates/js/phantomjs_polyfills.js" (render "phantomjs_polyfills.js")]
      )))
