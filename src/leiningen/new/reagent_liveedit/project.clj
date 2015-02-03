@@ -35,7 +35,6 @@
             [lein-garden "0.2.5"]
             [lein-environ "1.0.0"]
             [lein-ring "0.9.1"]
-            [lein-asset-minifier "0.2.2"]
             [lein-exec "0.3.4"]
             [lein-pdo "0.1.1"]
             [com.cemerick/clojurescript.test "0.3.3"]
@@ -50,41 +49,31 @@
                                      "resources/public/js/"
                                      "resources/public/css/"]
 
-  :minify-assets
-  {:dev
-   {:assets {"resources/public/css/site.min.css" ["target/css/site.css"
-                                                  "target/css/dev.css"]}
-    :options {:linebreak 0}}
-
-   :production
-   {:assets {"resources/public/css/site.min.css" "target/css/site.css"}}}
 
   :aliases {"server"   ["ring" "server"]
             "css"      ["garden" "auto"]
-            "minify"   ["minify-assets" "watch" "dev"]
             "autotest" ["cljsbuild" "auto" "test"]
             "test"     ["cljsbuild" "once" "test"]
             "web"      ["with-profile" "production" "trampoline" "ring" "server"]
             "prod"     ["with-profile" "production" "do"
                         "clean,"
                         "garden" "once" "site,"
-                        "minify-assets" "production,"
                         "cljsbuild" "once" "app"]
-            "live"     ["pdo" "css," "minify," "figwheel," "server"]
+            "live"     ["pdo" "css," "figwheel," "server"]
             "once"     ["do" "cljsbuild" "once" "app,"
-                        "garden" "once,"
-                        "minify-assets" "dev"]
+                        "garden" "once"]
             "dev"      ["do" "once," "live"]}
 
   :garden {:builds [{:id "site"
                      :source-paths ["src/styles"]
                      :stylesheet {{ns-name}}.styles.site/site
-                     :compiler {:output-to "target/css/site.css"
-                                :pretty-print? true}}
+                     :compiler {:output-to "resources/public/css/site.css"
+                                :pretty-print? false}}
                     {:id "dev"
                      :source-paths ["src/styles"]
-                     :stylesheet {{ns-name}}.styles.dev/dev
-                     :compiler {:output-to "target/css/dev.css"
+                     :stylesheet {{ns-name}}.styles.site/site
+                     :env {:dev? true}
+                     :compiler {:output-to "resources/public/css/site.css"
                                 :pretty-print? true}}]}
 
   :cljsbuild {:builds {:app {:source-paths ["src/cljs"]

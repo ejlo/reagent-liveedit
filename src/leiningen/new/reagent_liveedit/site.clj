@@ -1,6 +1,8 @@
 (ns {{ns-name}}.styles.site
-  (:require [garden.def :refer [defstyles]]
-            [garden.units :refer [px em]]))
+  (:require [environ.core :refer [env]]
+            [garden.def :refer [defstyles]]
+            [garden.units :refer [px em]]
+            [{{ns-name}}.styles.dev :as dev]))
 
 (def reset
   [[:body
@@ -29,4 +31,6 @@
 
 (defstyles site
   [reset
-   app])
+   app
+   (when (env :dev?)
+     dev/dev)])
