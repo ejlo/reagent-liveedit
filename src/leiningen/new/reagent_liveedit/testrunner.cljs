@@ -1,6 +1,6 @@
 (ns {{ns-name}}.testrunner
   (:require [cemerick.cljs.test :as t :refer [report]]
-            [{{ns-name}}.state :as state]
+            [{{ns-name}}.state :as state :refer [cur]]
             [{{ns-name}}.core-test]))
 
 ;; temporary state, we don't want to mess with the app state during testing
@@ -34,10 +34,10 @@
 
 (defmethod report :summary [{:keys [test pass fail error] :as test-env}]
   (println "Test summary: " (select-keys test-env [:pass :fail :error]))
-  (state/put! [:test] {:pass pass
-                       :fail fail
-                       :error error
-                       :fail-messages @fail-messages}))
+  (reset! (cur [:test]) {:pass pass
+                         :fail fail
+                         :error error
+                         :fail-messages @fail-messages}))
 
 (defn run-tests []
   (enable-console-print!)

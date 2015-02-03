@@ -1,14 +1,7 @@
 (ns {{ns-name}}.test
   (:require [clojure.string :as str]
-            [reagent.core   :as reagent :refer [atom]]
-            [{{ns-name}}.state   :as state]))
-
-#_(defn kw
-  "A version of keyword that first strips colons at the head"
-  [s]
-  (some-> s
-          (str/replace-first #":+" "")
-          (keyword)))
+            [reagent.core :as reagent :refer [atom]]
+            [{{ns-name}}.state :as state :refer [cur]]))
 
 (defn fail-message [{:keys [test-name type message expected actual] :as m}]
   [:div.fail-message
@@ -19,20 +12,19 @@
    [:div.actual [:span.name "Actual: "]
     [:span {:class (if (= type :error) :stack :res)} (str actual)]]])
 
-
 (defn fail-message-list [msgs]
-  (let [msgs (state/get-state [:test :fail-messages])]
+  (let [msgs @(cur [:test :fail-messages])]
     (when-not (empty? msgs)
       [:div.fail-message-list
        (for [m msgs]
          [fail-message m])])))
 
 (defn test-component []
-  (let [{:keys [pass fail error fail-messages]} (state/get-state [:test])
+  (let [{:keys [pass fail error fail-messages]} @(cur [:test])
         class (if (or (pos? error) (pos? fail))
                 :failed
                 (when (pos? pass) :passed))]
-    (when (state/get-state [:test])
+    (when @(cur [:test])
       [:div.test {:class class}
        [:div.test-count
         (when (pos? pass) [:div.pass "Pass: " pass])

@@ -1,7 +1,8 @@
 (ns {{ns-name}}.test-macros
   (:require [cemerick.cljs.test :as t :refer-macros [is deftest]]
-            #_[reagent.core       :as r]
-            #_[{{ns-name}}.state       :as state]))
+            #_[reagent.core :as r]
+            #_[reagent.cursor :as rc]
+            #_[{{ns-name}}.state :as state]))
 
 ;; from clojurescript source code
 (defmacro assert-args [fnname & pairs]
@@ -12,14 +13,13 @@
         (when more
           (list* `assert-args fnname more)))))
 
-(defmacro defdomtest [name cursor-value-map & body]
+(defmacro defdomtest [name value-map & body]
   (assert-args defdomtest
-               (map? cursor-value-map) "a map of cursor and values")
+               (map? value-map) "a map of cursor and values")
  `(cemerick.cljs.test/deftest ~name
     (let [old-state# @{{ns-name}}.state/app-state]
-      ({{ns-name}}.state/put! [:testing] true)
-      ~@(for [[cursor v] cursor-value-map]
-          (list '{{ns-name}}.state/put! cursor v))
+      ~@(for [[path v] value-map]
+          (list 'reset! `(reagent.cursor/cur {{ns-name}}.state/app-state ~path) v))
       (reagent.core/force-update-all)
       ~@body
       ({{ns-name}}.state/reset-state! old-state#)
