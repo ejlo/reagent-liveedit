@@ -5,7 +5,7 @@
             [ring.middleware.defaults :refer [site-defaults wrap-defaults]]
             [environ.core :refer [env]]
             [prone.middleware :refer [wrap-exceptions]]
-            [{{ns-name}}.server.services :refer [browser-repl start-figwheel]]))
+            [{{ns-name}}.server.services :refer [browser-repl]]))
 
 (defroutes routes
   (GET "/" [] (io/resource "public/index.html"))
