@@ -11,15 +11,6 @@ A leiningen template based on [reagent-template](https://github.com/reagent-proj
 
 * [leiningen](leiningen.org) and [phantomjs](http://phantomjs.org)
 
-
-## Install
-
-Clone the repo and in its root directory, run
-
-```bash
-lein install
-```
-
 ## Usage
 
 ```bash
