@@ -52,7 +52,7 @@
 
 
   :aliases {"server"   ["ring" "server"]
-            "css"      ["garden" "auto"]
+            "css"      ["garden" "auto" "dev"]
             "autotest" ["cljsbuild" "auto" "test"]
             "test"     ["cljsbuild" "once" "test"]
             "web"      ["with-profile" "production" "trampoline" "ring" "server"]
