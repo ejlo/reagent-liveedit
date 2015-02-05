@@ -58,14 +58,14 @@
             "web"      ["with-profile" "production" "trampoline" "ring" "server"]
             "prod"     ["with-profile" "production" "do"
                         "clean,"
-                        "garden" "once" "site,"
+                        "garden" "once" "prod,"
                         "cljsbuild" "once" "app"]
             "live"     ["pdo" "css," "figwheel," "server"]
             "once"     ["do" "cljsbuild" "once" "app,"
                         "garden" "once"]
             "dev"      ["do" "once," "live"]}
 
-  :garden {:builds [{:id "site"
+  :garden {:builds [{:id "prod"
                      :source-paths ["src/styles"]
                      :stylesheet {{ns-name}}.styles.site/site
                      :compiler {:output-to "resources/public/css/site.css"
