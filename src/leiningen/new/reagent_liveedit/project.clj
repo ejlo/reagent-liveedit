@@ -67,12 +67,14 @@
                      :source-paths ["src/styles"]
                      :stylesheet {{ns-name}}.styles.site/site
                      :compiler {:output-to "resources/public/css/site.css"
+                                :vendors ["webkit"]
                                 :pretty-print? false}}
                     {:id "dev"
                      :source-paths ["src/styles"]
                      :stylesheet {{ns-name}}.styles.site/site
                      :env {:dev? true}
                      :compiler {:output-to "resources/public/css/site.css"
+                                :vendors ["webkit"]
                                 :pretty-print? true}}]}
 
   :cljsbuild {:builds {:app {:source-paths ["src/cljs"]
