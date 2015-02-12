@@ -35,6 +35,7 @@
    [:.name {:color "#888"}]
    [:.expected [:.res {:color "#24e"}]]
    [:.actual [:.res {:color "#72f"}]]
+   [:.stacktrace {:display :block}]
 
    [:.fail-message-list {}]
    [:.fail-message {:border-top [[(px 1) :solid :black]]
