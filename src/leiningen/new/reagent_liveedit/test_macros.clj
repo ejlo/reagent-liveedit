@@ -19,7 +19,7 @@
  `(cemerick.cljs.test/deftest ~name
     (let [old-state# @{{ns-name}}.state/app-state]
       ~@(for [[path v] value-map]
-          (list 'reset! `(reagent.cursor/cur {{ns-name}}.state/app-state ~path) v))
+          (list 'reset! `(reagent.core/cursor {{ns-name}}.state/app-state ~path) v))
       (reagent.core/force-update-all)
       ~@body
       ({{ns-name}}.state/reset-state! old-state#)

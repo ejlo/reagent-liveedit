@@ -12,7 +12,6 @@
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [reagent "0.5.0-alpha3"]
                  [reagent-utils "0.1.2"]
-                 [reagent/reagent-cursor "0.1.2"]
                  [garden "1.2.5"]
                  [secretary "1.2.1"]
                  [org.clojure/clojurescript "0.0-2816" :scope "provided"]

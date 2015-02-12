@@ -1,15 +1,20 @@
 (ns {{ns-name}}.state
-    (:require [reagent.core :as reagent]
-              [reagent.cursor :as rc]))
+    (:require [reagent.core :as reagent]))
 
 (defonce init-state {:text "Hello, this is: "})
 
 (defonce app-state (reagent/atom init-state))
 
-(def cur
+(def -cur
   (memoize
-   (fn [path]
-     (rc/cur app-state path))))
+   (fn [atom path]
+     (reagent/cursor atom path))))
+
+(defn cur
+  ([path]
+   (-cur app-state path))
+  ([atom path]
+   (-cur atom path)))
 
 (defn reset-state! [s]
   (reset! app-state s))
