@@ -105,12 +105,14 @@
                    {:builds
                     {:app {:source-paths ["src/env/dev/cljs" "test"]
                            :compiler
-                           {:main          "{{ns-name}}.dev"
-                            :asset-path    "js/out"
-                            :output-dir    "resources/public/js/out"
-                            :optimizations :none
-                            :source-map    "resources/public/js/out.js.map"
-                            :pretty-print  true}}}}}
+                           {:main                 "{{ns-name}}.dev"
+                            :asset-path           "js/out"
+                            :output-dir           "resources/public/js/out"
+                            :optimizations        :none
+                            :cache-analysis       true
+                            :source-map           "resources/public/js/out.js.map"
+                            :source-map-timestamp true
+                            :pretty-print         true}}}}}
 
              :production {:ring {:open-browser? false
                                  :stacktraces?  false
