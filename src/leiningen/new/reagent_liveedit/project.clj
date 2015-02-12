@@ -59,9 +59,9 @@
                         "garden" "once" "prod,"
                         "cljsbuild" "once" "app"]
             "live"     ["pdo" "css," "figwheel," "server"]
-            "once"     ["do" "cljsbuild" "once" "app,"
-                        "garden" "once"]
-            "dev"      ["do" "once," "live"]}
+            "once"     ["do" "garden" "once" "dev,"
+                        "cljsbuild" "once" "app"]
+            "dev"      ["do" "cljsbuild" "once" "app," "live"]}
 
   :garden {:builds [{:id "prod"
                      :source-paths ["src/styles"]
