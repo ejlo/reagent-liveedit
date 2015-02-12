@@ -12,12 +12,15 @@
    [:div.actual [:span.name "Actual: "]
     [:span {:class (if (= type :error) :stack :res)} (str actual)]]])
 
+(defn indexed [coll]
+  (map-indexed (fn [idx c] [idx c]) coll))
+
 (defn fail-message-list [msgs]
   (let [msgs @(cur [:test :fail-messages])]
     (when-not (empty? msgs)
       [:div.fail-message-list
-       (for [m msgs]
-         [fail-message m])])))
+       (for [[idx m] (indexed msgs)] ^{:key idx}
+            [fail-message m])])))
 
 (defn test-component []
   (let [{:keys [pass fail error fail-messages]} @(cur [:test])
