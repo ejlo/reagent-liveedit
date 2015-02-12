@@ -40,8 +40,12 @@
 
 ;; -------------------------
 ;; Initialize app
+(defn render []
+  (let [app (.getElementById js/document "app")]
+    (reagent/render [main-page] app)))
+
 (defn init! []
-  (reagent/render-component [main-page] (.getElementById js/document "app")))
+  (render))
 
 ;; -------------------------
 ;; History
