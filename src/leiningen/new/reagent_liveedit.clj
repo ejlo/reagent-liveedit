@@ -26,7 +26,6 @@
      ["src/styles/{{sanitized}}/styles/dev.clj" (render "dev.clj" data)]
      ["src/styles/{{sanitized}}/styles/site.clj" (render "site.clj" data)]
      ["test/{{sanitized}}/core_test.cljs" (render "core_test.cljs" data)]
-     ["test/{{sanitized}}/test_macros.clj" (render "test_macros.clj" data)]
      ["resources/public/index.html" (render "index.html" data)]
 
      ["resources/templates/js/phantomjs_polyfills.js" (render "phantomjs_polyfills.js")]
