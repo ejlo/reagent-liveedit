@@ -1,4 +1,4 @@
-(ns {{ns-name}}.testenv
+(ns {{ns-name}}.test-env
   (:require [dommy.core :as dommy :refer-macros [sel sel1]]
             [cemerick.cljs.test :as t]
             [{{ns-name}}.core :as core]))

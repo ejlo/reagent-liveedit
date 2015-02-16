@@ -1,4 +1,4 @@
-(ns {{ns-name}}.dev
+(ns {{ns-name}}.dev-env
   (:require [figwheel.client :as figwheel :include-macros true]
             [weasel.repl :as weasel]
             [reagent.core :as r]

@@ -79,7 +79,7 @@
 
   :cljsbuild {:builds {:app {:source-paths ["src/cljs"]
                              :compiler {:output-to "resources/public/js/app.js"}}
-                       :test {:source-paths ["src/cljs" "src/env/test/cljs" "test"]
+                       :test {:source-paths ["src/cljs" "src/env/test" "test"]
                               :notify-command ["phantomjs" "target/test/test.js"]
                               :compiler {:output-to "target/test/test.js"
                                          :optimizations :whitespace
@@ -103,9 +103,9 @@
 
                    :cljsbuild
                    {:builds
-                    {:app {:source-paths ["src/env/dev/cljs" "test"]
+                    {:app {:source-paths ["src/env/dev" "test"]
                            :compiler
-                           {:main                 "{{ns-name}}.dev"
+                           {:main                 "{{ns-name}}.dev-env"
                             :asset-path           "js/out"
                             :output-dir           "resources/public/js/out"
                             :optimizations        :none
@@ -121,8 +121,8 @@
                           :cljsbuild
                           {:builds
                            {:app
-                            {:source-paths ["src/env/prod/cljs"]
+                            {:source-paths ["src/env/prod"]
                              :compiler
-                             {:main          "{{ns-name}}.prod"
+                             {:main          "{{ns-name}}.prod-env"
                               :optimizations :advanced
                               :pretty-print  false}}}}}})
