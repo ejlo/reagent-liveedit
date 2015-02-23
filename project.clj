@@ -1,4 +1,4 @@
-(defproject reagent-liveedit/lein-template "0.1.6-SNAPSHOT"
+(defproject reagent-liveedit/lein-template "0.1.6"
   :description "A leiningen template based on reagent-template for live editing a clojurescript web app"
   :url "https://github.com/ejlo/reagent-liveedit/"
   :license {:name "MIT License"
