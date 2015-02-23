@@ -5,12 +5,10 @@
             [{{ns-name}}.core :as {{ns-name}}]
             [{{ns-name}}.state :as state :refer [cur]]))
 
-(def saved-app-state (atom nil))
-
 (defn save-app-state [f]
-  (reset! saved-app-state @state/app-state)
-  (f)
-  (reset! state/app-state @saved-app-state))
+  (let [saved-app-state @state/app-state]
+    (f)
+    (reset! state/app-state saved-app-state)))
 
 (use-fixtures :once save-app-state)
 
