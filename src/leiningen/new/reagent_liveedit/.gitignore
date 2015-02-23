@@ -12,5 +12,6 @@ pom.xml.asc
 /resources/dev/
 /out
 /.repl
+/repl
 /logs
 /tmp
